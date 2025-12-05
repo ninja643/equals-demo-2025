@@ -1,7 +1,10 @@
 package rs.ac.ni.pmf.oop2.examples;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
+@Slf4j
 public class StudentsManager
 {
 	private StudentDto _selectedStudent;
@@ -10,27 +13,27 @@ public class StudentsManager
 
 	public void selectStudent(final StudentDto studentToSelect)
 	{
-		System.out.println("Trying to select student: " + studentToSelect);
+		log.info("Trying to select student: " + studentToSelect);
 
 		for (final StudentDto student : _service.getAllStudents())
 		{
 			if (student.equals(studentToSelect))
 			{
-				System.out.println("Selected student: " + student);
+				log.info("Selected student: " + student);
 				_selectedStudent = student;
 				return;
 			}
 		}
 
-		System.out.println("Selected student not found!");
+		log.error("Selected student not found!");
 		_selectedStudent = null;
 	}
 
 	public void addAndSelect(final StudentDto newStudent)
 	{
-		_service.addStudent(newStudent);
+		final StudentDto addedStudent = _service.addStudent(newStudent);
 		System.out.println("Added student");
-		selectStudent(newStudent);
+		selectStudent(addedStudent);
 	}
 
 	public void listStudents()
@@ -48,7 +51,7 @@ public class StudentsManager
 
 		if (_selectedStudent != null)
 		{
-			System.out.println("Selected student:");
+			System.out.println("Selected student: " + _selectedStudent);
 		}
 		else
 		{
@@ -60,7 +63,10 @@ public class StudentsManager
 	public static void main(final String[] args)
 	{
 		final StudentsManager manager = new StudentsManager();
-		manager.listStudents();
+
+        log.error("Hello World!");
+
+        manager.listStudents();
 
 		manager.addAndSelect(new StudentDto("John", "Doe"));
 

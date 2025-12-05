@@ -1,25 +1,27 @@
 package rs.ac.ni.pmf.oop2.examples;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Value;
 
 import java.time.LocalDateTime;
 
 @Value
 @AllArgsConstructor
-public class StudentDto
-{
-	Integer id;
-	String firstName;
-	String lastName;
+public class StudentDto {
+    Integer id;
 
-	LocalDateTime registrationDate;
+    String firstName;
 
-	public StudentDto(final String firstName, final String lastName)
-	{
-		this.firstName = firstName;
-		this.lastName = lastName;
-		id = null;
-		registrationDate = LocalDateTime.now();
-	}
+    String lastName;
+
+    @EqualsAndHashCode.Exclude
+    LocalDateTime registrationDate;
+
+    public StudentDto(final String firstName, final String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        id = null;
+        registrationDate = LocalDateTime.now();
+    }
 }
