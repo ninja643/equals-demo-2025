@@ -1,4 +1,4 @@
-package rs.ac.ni.pmf.oop2.examples;
+package rs.ac.ni.pmf.oop2.examples.equals;
 
 import java.util.ArrayList;
 import java.util.List;

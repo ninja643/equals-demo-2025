@@ -1,4 +1,4 @@
-package rs.ac.ni.pmf.oop2.examples;
+package rs.ac.ni.pmf.oop2.examples.equals;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
